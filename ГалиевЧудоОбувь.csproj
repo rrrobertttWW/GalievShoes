@@ -14,6 +14,8 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -107,6 +109,9 @@
     <Compile Include="Subcategories.cs">
       <DependentUpon>GalievModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>GalievModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Users.cs">
       <DependentUpon>GalievModel.tt</DependentUpon>
     </Compile>
@@ -169,6 +174,43 @@
     <Resource Include="res\Чудо Обувь.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="res\IMG_KB_164811.png" />
+    <Resource Include="res\IMG_KB_164816.png" />
+    <Resource Include="res\IMG_KB_185501.png" />
+    <Resource Include="res\IMG_KSd_185508.png" />
+    <Resource Include="res\IMG_KSd_195207.png" />
+    <Resource Include="res\IMG_KSho_185512.png" />
+    <Resource Include="res\IMG_KS_195213.png" />
+    <Resource Include="res\IMG_KS_195217.png" />
+    <Resource Include="res\IMG_KS_195222.png" />
+    <Resource Include="res\IMG_MB_174349.png" />
+    <Resource Include="res\IMG_MB_191200.png" />
+    <Resource Include="res\IMG_MB_191205.png" />
+    <Resource Include="res\IMG_MSho_190514.png" />
+    <Resource Include="res\IMG_MSho_190518.png" />
+    <Resource Include="res\IMG_MSho_191612.png" />
+    <Resource Include="res\IMG_MS_185531.png" />
+    <Resource Include="res\IMG_MS_185532.png" />
+    <Resource Include="res\IMG_MS_185533.png" />
+    <Resource Include="res\IMG_WB_170859.png" />
+    <Resource Include="res\IMG_WB_170905.png" />
+    <Resource Include="res\IMG_WB_170906.png" />
+    <Resource Include="res\IMG_WSd_174332.png" />
+    <Resource Include="res\IMG_WSd_185156.png" />
+    <Resource Include="res\IMG_WSd_185551.png" />
+    <Resource Include="res\IMG_WSho_174409.png" />
+    <Resource Include="res\IMG_WSho_185202.png" />
+    <Resource Include="res\IMG_WSho_185545.png" />
+    <Resource Include="res\IMG_WS_174110.png" />
+    <Resource Include="res\IMG_WS_185528.png" />
+    <Resource Include="res\IMG_WS_185535.png" />
+    <Resource Include="res\IMG_WS_185538.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
     <Content Include="GalievModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>GalievModel.Context.cs</LastGenOutput>
@@ -179,9 +221,6 @@
       <DependentUpon>GalievModel.edmx</DependentUpon>
       <LastGenOutput>GalievModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

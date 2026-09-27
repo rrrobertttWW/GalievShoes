@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ГалиевЧудоОбувь"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Icon="res/Чудо Обувь.ico" FontFamily="Calibri">
+        Title="MainWindow" Height="450" Width="800" Icon="res/Чудо Обувь.ico" FontFamily="Calibri" MinWidth="1200" MinHeight="700">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="120"/>

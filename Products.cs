@@ -19,7 +19,20 @@ namespace ГалиевЧудоОбувь
         {
             this.Stock = new HashSet<Stock>();
         }
-    
+        public string CategoryFull
+        {
+            get
+            {
+                return Categories.CategoryName;
+            }
+        }
+        public string SubcategoryFull
+        {
+            get
+            {
+                return Subcategories.SubcategoryName;
+            }
+        }
         public int ProductID { get; set; }
         public int CategoryID { get; set; }
         public int SubcategoryID { get; set; }

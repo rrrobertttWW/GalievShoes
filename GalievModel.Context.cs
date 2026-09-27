@@ -13,18 +13,17 @@ namespace ГалиевЧудоОбувь
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ГалиевЧудоОбувьEntities : DbContext
+    public partial class Галиев_ботинкиEntities : DbContext
     {
-        private static ГалиевЧудоОбувьEntities _context;
-        public static ГалиевЧудоОбувьEntities GetContext()
+        private static Галиев_ботинкиEntities _context;
+        public static Галиев_ботинкиEntities GetContext()
         {
-           if (_context == null)
-                _context = new ГалиевЧудоОбувьEntities();
-           return _context;
+            if (_context == null)
+                _context = new Галиев_ботинкиEntities();
+            return _context;
         }
-        
-        public ГалиевЧудоОбувьEntities()
-            : base("name=ГалиевЧудоОбувьEntities")
+        public Галиев_ботинкиEntities()
+            : base("name=Галиев_ботинкиEntities")
         {
         }
     
@@ -42,6 +41,7 @@ namespace ГалиевЧудоОбувь
         public virtual DbSet<Sizes> Sizes { get; set; }
         public virtual DbSet<Stock> Stock { get; set; }
         public virtual DbSet<Subcategories> Subcategories { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
 }
