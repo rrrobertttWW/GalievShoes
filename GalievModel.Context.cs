@@ -41,7 +41,6 @@ namespace ГалиевЧудоОбувь
         public virtual DbSet<Sizes> Sizes { get; set; }
         public virtual DbSet<Stock> Stock { get; set; }
         public virtual DbSet<Subcategories> Subcategories { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
 }

@@ -84,6 +84,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GalievModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Manager.cs" />
     <Compile Include="Manufacturers.cs">
       <DependentUpon>GalievModel.tt</DependentUpon>
@@ -109,12 +112,13 @@
     <Compile Include="Subcategories.cs">
       <DependentUpon>GalievModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>GalievModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Users.cs">
       <DependentUpon>GalievModel.tt</DependentUpon>
     </Compile>
+    <Page Include="LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -209,12 +213,11 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="GalievModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>GalievModel.Context.cs</LastGenOutput>
       <DependentUpon>GalievModel.edmx</DependentUpon>
+      <LastGenOutput>GalievModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="GalievModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

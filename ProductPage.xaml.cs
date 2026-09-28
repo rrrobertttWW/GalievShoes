@@ -33,35 +33,43 @@ namespace ГалиевЧудоОбувь
             FiltCB.SelectedIndex = 0;
             SortCB.SelectedIndex = 0;
 
+            if (Manager.IsGuest)
+            {
+                SearchLabel.Visibility = Visibility.Collapsed;
+                SearchTB.Visibility = Visibility.Collapsed;
+                FilterLabel.Visibility = Visibility.Collapsed;
+                FiltCB.Visibility = Visibility.Collapsed;
+                SortLabel.Visibility = Visibility.Collapsed;
+                SortCB.Visibility = Visibility.Collapsed;
+            }
             UpdateProducts();
         }
         private void UpdateProducts()
         {
             var currentProducts = Галиев_ботинкиEntities.GetContext().Products.ToList();
 
+            foreach (var p in currentProducts)
+                p.ProductImage = "/ГалиевЧудоОбувь;component/res/" + p.ProductImage;
+
             // filt
             if (FiltCB.SelectedIndex == 1)
                 currentProducts = currentProducts.Where(p => p.CategoryID == 1).ToList();
-
             if (FiltCB.SelectedIndex == 2)
                 currentProducts = currentProducts.Where(p => p.CategoryID == 2).ToList();
-
             if (FiltCB.SelectedIndex == 3)
                 currentProducts = currentProducts.Where(p => p.CategoryID == 3).ToList();
 
             // search
-            string searchText = SearchTB.Text.ToLower();
-
-            currentProducts = currentProducts.Where(p => p.ProductName.ToLower().Contains(searchText)).ToList();
-
+            string searchText = (SearchTB.Text ?? "").ToLower();
+            currentProducts = currentProducts
+                .Where(p => (p.ProductName ?? "").ToLower().Contains(searchText))
+                .ToList();
 
             // sort
             if (SortCB.SelectedIndex == 1)
                 currentProducts = currentProducts.OrderByDescending(p => p.Price).ToList();
-
             if (SortCB.SelectedIndex == 2)
                 currentProducts = currentProducts.OrderBy(p => p.Price).ToList();
-
 
             ProductListView.ItemsSource = currentProducts;
         }

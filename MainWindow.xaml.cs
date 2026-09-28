@@ -23,21 +23,26 @@ namespace ГалиевЧудоОбувь
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new ProductPage());
             Manager.MainFrame = MainFrame;
+
+            MainFrame.Navigate(new LoginPage());   // <-- было ProductPage
+            UpdateUserInfo();
         }
 
-        private void MainFrame_ContentRendered(object sender, EventArgs e)
+        private void UpdateUserInfo()
         {
-            if (MainFrame.CanGoBack)
-            {
-                BtnBack.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                BtnBack.Visibility = Visibility.Hidden;
-            }
+            UserInfoTB.Text = Manager.CurrentUser == null
+                ? "Гость"
+                : Manager.CurrentUser.UserSurname + " " + Manager.CurrentUser.UserName;
         }
+
+        private void LogoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.CurrentUser = null;
+            UpdateUserInfo();
+            MainFrame.Navigate(new LoginPage());
+        }
+       
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {

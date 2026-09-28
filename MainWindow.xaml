@@ -5,18 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ГалиевЧудоОбувь"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Icon="res/Чудо Обувь.ico" FontFamily="Calibri" MinWidth="1200" MinHeight="700">
+        Title="Чудо обувь" Height="450" Width="800" Icon="res/Чудо Обувь.ico" FontFamily="Calibri" MinWidth="1200" MinHeight="700">
+    
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="120"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
+       
         <Frame Grid.Row="0" Background="#D2F6E7"></Frame>
-        <Image Source="res/Чудо Обувь.png" HorizontalAlignment="Left" Grid.Row="0"></Image>
+        <StackPanel Orientation="Horizontal" Grid.Row="2"
+            HorizontalAlignment="Right">
+            <TextBlock Name="UserInfoTB" VerticalAlignment="Center"
+              FontSize="14"/>
+            <Button Content="Выйти" Width="120" Height="40"
+            Background="#FF70B2AF" Click="LogoutBtn_Click"/>
+        </StackPanel><Image Source="res/Чудо Обувь.png" HorizontalAlignment="Left" Grid.Row="0"></Image>
         <TextBlock Text="Чудо Обувь" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"></TextBlock>
-        <Frame Grid.Row="1" Name="MainFrame" ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden"></Frame>
-        <Button Content="Back" Name="BtnBack" Width="175" Height="30" HorizontalAlignment="Right" Margin="5" Background="#FF70B2AF" Click="BtnBack_Click" ></Button>
+        <Frame Grid.Row="1" Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>
