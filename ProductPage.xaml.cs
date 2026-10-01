@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,33 +23,26 @@ namespace ГалиевЧудоОбувь
         public ProductPage()
         {
             InitializeComponent();
-            var products = Галиев_ботинкиEntities.GetContext().Products.ToList();
+            var products = Галиев_ботинкиEntities1.GetContext().Products.ToList();
 
             ProductListView.ItemsSource = products;
-            foreach (var product in products)
-            {
-                product.ProductImage = "/ГалиевЧудоОбувь;component/res/" + product.ProductImage;
-            }
+           
             FiltCB.SelectedIndex = 0;
             SortCB.SelectedIndex = 0;
 
             if (Manager.IsGuest)
             {
-                SearchLabel.Visibility = Visibility.Collapsed;
-                SearchTB.Visibility = Visibility.Collapsed;
-                FilterLabel.Visibility = Visibility.Collapsed;
-                FiltCB.Visibility = Visibility.Collapsed;
-                SortLabel.Visibility = Visibility.Collapsed;
-                SortCB.Visibility = Visibility.Collapsed;
+                SearchPanel.Visibility = Visibility.Collapsed;
+                FilterPanel.Visibility = Visibility.Collapsed;
+                SortPanel.Visibility = Visibility.Collapsed;
             }
             UpdateProducts();
         }
         private void UpdateProducts()
         {
-            var currentProducts = Галиев_ботинкиEntities.GetContext().Products.ToList();
+            var currentProducts = Галиев_ботинкиEntities1.GetContext().Products.ToList();
 
-            foreach (var p in currentProducts)
-                p.ProductImage = "/ГалиевЧудоОбувь;component/res/" + p.ProductImage;
+            
 
             // filt
             if (FiltCB.SelectedIndex == 1)
@@ -91,6 +84,49 @@ namespace ГалиевЧудоОбувь
         private void SortCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateProducts();
+        }
+
+        private void AddToCart_Click(object sender, RoutedEventArgs e)
+        {
+            if (Manager.IsGuest)
+            {
+                MessageBox.Show("Для оформления заказа необходимо авторизоваться.");
+                return;
+            }
+
+            Button btn = sender as Button;
+            Stock selectedStock = btn.Tag as Stock;
+
+            if (selectedStock == null)
+            {
+                MessageBox.Show("Пожалуйста, выберите размер перед добавлением в корзину.");
+                return;
+            }
+
+            if (Manager.Cart.ContainsKey(selectedStock))
+            {
+                if (Manager.Cart[selectedStock] < selectedStock.Available)
+                {
+                    Manager.Cart[selectedStock]++;
+                    MessageBox.Show("Количество увеличено.");
+                }
+                else
+                {
+                    MessageBox.Show("Достигнуто максимальное доступное количество на складе.");
+                }
+            }
+            else
+            {
+                if (selectedStock.Available > 0)
+                {
+                    Manager.Cart.Add(selectedStock, 1);
+                    MessageBox.Show("Товар добавлен в корзину.");
+                }
+                else
+                {
+                    MessageBox.Show("К сожалению, этого размера нет в наличии.");
+                }
+            }
         }
     }
 }

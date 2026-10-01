@@ -33,6 +33,16 @@ namespace ГалиевЧудоОбувь
                 return Subcategories.SubcategoryName;
             }
         }
+        public string PhotoPath
+        {
+            get
+            {
+                if (ProductImage == null)
+                    return null;
+
+                return "pics/" + ProductImage;
+            }
+        }
         public int ProductID { get; set; }
         public int CategoryID { get; set; }
         public int SubcategoryID { get; set; }

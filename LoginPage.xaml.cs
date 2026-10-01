@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -23,7 +23,7 @@ namespace ГалиевЧудоОбувь
 
             try
             {
-                var user = Галиев_ботинкиEntities.GetContext().Users
+                var user = Галиев_ботинкиEntities1.GetContext().Users
                     .FirstOrDefault(u => u.UserLogin == login);
 
                 if (user == null)
@@ -33,6 +33,10 @@ namespace ГалиевЧудоОбувь
                 }
 
                 Manager.CurrentUser = user;
+                if (Window.GetWindow(this) is MainWindow mainWindow)
+                {
+                    mainWindow.UpdateUserInfo();
+                }
                 Manager.MainFrame.Navigate(new ProductPage());
             }
             catch (System.Exception ex)
@@ -44,6 +48,10 @@ namespace ГалиевЧудоОбувь
         private void GuestBtn_Click(object sender, RoutedEventArgs e)
         {
             Manager.CurrentUser = null; // гость
+            if (Window.GetWindow(this) is MainWindow mainWindow)
+            {
+                mainWindow.UpdateUserInfo();
+            }
             Manager.MainFrame.Navigate(new ProductPage());
         }
     }

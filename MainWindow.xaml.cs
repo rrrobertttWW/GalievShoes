@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,29 +24,67 @@ namespace ГалиевЧудоОбувь
         {
             InitializeComponent();
             Manager.MainFrame = MainFrame;
+            MainFrame.Navigated += MainFrame_Navigated;
 
-            MainFrame.Navigate(new LoginPage());   // <-- было ProductPage
+            MainFrame.Navigate(new LoginPage());
             UpdateUserInfo();
         }
 
-        private void UpdateUserInfo()
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            BtnBack.Visibility = MainFrame.CanGoBack ? Visibility.Visible : Visibility.Collapsed;
+            
+            if (e.Content is LoginPage)
+            {
+                UserInfoTB.Visibility = Visibility.Collapsed;
+                
+                // Очищаем историю навигации при возврате на страницу логина
+                while (MainFrame.CanGoBack)
+                {
+                    MainFrame.RemoveBackEntry();
+                }
+                BtnBack.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                UserInfoTB.Visibility = Visibility.Visible;
+            }
+        }
+
+        public void UpdateUserInfo()
         {
             UserInfoTB.Text = Manager.CurrentUser == null
                 ? "Гость"
                 : Manager.CurrentUser.UserSurname + " " + Manager.CurrentUser.UserName;
+
+            if (Manager.IsGuest)
+            {
+                BtnCart.Visibility = Visibility.Collapsed;
+                BtnOrders.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                BtnCart.Visibility = Visibility.Visible;
+                BtnOrders.Visibility = Visibility.Visible;
+            }
         }
 
-        private void LogoutBtn_Click(object sender, RoutedEventArgs e)
+        private void BtnCart_Click(object sender, RoutedEventArgs e)
         {
-            Manager.CurrentUser = null;
-            UpdateUserInfo();
-            MainFrame.Navigate(new LoginPage());
+            MainFrame.Navigate(new CartPage());
         }
-       
+
+        private void BtnOrders_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new OrdersPage());
+        }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-        Manager.MainFrame.GoBack();
+            if (MainFrame.CanGoBack)
+            {
+                MainFrame.GoBack();
+            }
         }
     }
 }

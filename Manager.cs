@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+using System.Windows.Controls;
+using System.Collections.Generic;
 
 namespace ГалиевЧудоОбувь
 {
@@ -7,6 +8,7 @@ namespace ГалиевЧудоОбувь
         public static Frame MainFrame { get; set; }
 
         public static Users CurrentUser { get; set; }
+        public static Dictionary<Stock, int> Cart { get; set; } = new Dictionary<Stock, int>();
 
         public static bool IsGuest => CurrentUser == null;
         public static bool IsUser => CurrentUser != null && CurrentUser.RoleID == 1;
