@@ -65,7 +65,7 @@ namespace ГалиевЧудоОбувь
             else
             {
                 BtnCart.Visibility = Visibility.Visible;
-                BtnOrders.Visibility = Visibility.Visible;
+                BtnOrders.Visibility = (Manager.IsManager || Manager.IsAdmin) ? Visibility.Visible : Visibility.Collapsed;
             }
         }
 

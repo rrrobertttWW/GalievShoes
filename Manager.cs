@@ -11,8 +11,8 @@ namespace ГалиевЧудоОбувь
         public static Dictionary<Stock, int> Cart { get; set; } = new Dictionary<Stock, int>();
 
         public static bool IsGuest => CurrentUser == null;
-        public static bool IsUser => CurrentUser != null && CurrentUser.RoleID == 1;
+        public static bool IsAdmin => CurrentUser != null && CurrentUser.RoleID == 1;
         public static bool IsManager => CurrentUser != null && CurrentUser.RoleID == 2;
-        public static bool IsAdmin => CurrentUser != null && CurrentUser.RoleID == 3;
+        public static bool IsUser => CurrentUser != null && CurrentUser.RoleID == 3;
     }
 }

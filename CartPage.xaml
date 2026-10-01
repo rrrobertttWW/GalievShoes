@@ -28,9 +28,9 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Button Content="-" Width="30" Height="30" Click="BtnMinus_Click" Tag="{Binding}"/>
-                                <Button Content="+" Width="30" Height="30" Margin="5,0,5,0" Click="BtnPlus_Click" Tag="{Binding}"/>
-                                <Button Content="Удалить" Width="70" Height="30" Click="BtnRemove_Click" Tag="{Binding}"/>
+                                <Button Content="-" Width="30" Height="30" Background="#FF70B2AF" Click="BtnMinus_Click" Tag="{Binding}"/>
+                                <Button Content="+" Width="30" Height="30" Margin="5,0,5,0" Background="#FF70B2AF" Click="BtnPlus_Click" Tag="{Binding}"/>
+                                <Button Content="Удалить" Width="70" Height="30" Background="#FF70B2AF" Click="BtnRemove_Click" Tag="{Binding}"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

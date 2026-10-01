@@ -21,8 +21,9 @@
             HorizontalAlignment="Right">
             <Button Name="BtnOrders" Content="Заказы" Width="100" Height="40" Background="#FF70B2AF" Click="BtnOrders_Click" Visibility="Collapsed"/>
             <Button Name="BtnCart" Content="Корзина" Width="100" Height="40" Background="#FF70B2AF" Click="BtnCart_Click" Visibility="Collapsed"/>
-            <TextBlock Name="UserInfoTB" VerticalAlignment="Center" FontSize="14"/>
         </StackPanel>
+        
+        <TextBlock Name="UserInfoTB" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="SemiBold"/>
         
         <Image Source="res/Чудо Обувь.png" HorizontalAlignment="Left" Grid.Row="0"></Image>
         <TextBlock Text="Чудо Обувь" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"></TextBlock>
