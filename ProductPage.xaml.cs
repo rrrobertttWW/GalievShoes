@@ -23,7 +23,7 @@ namespace ГалиевЧудоОбувь
         public ProductPage()
         {
             InitializeComponent();
-            var products = Галиев_ботинкиEntities1.GetContext().Products.ToList();
+            var products = Галиев_ботинкиEntities2.GetContext().Products.ToList();
 
             ProductListView.ItemsSource = products;
            
@@ -40,7 +40,7 @@ namespace ГалиевЧудоОбувь
         }
         private void UpdateProducts()
         {
-            var currentProducts = Галиев_ботинкиEntities1.GetContext().Products.ToList();
+            var currentProducts = Галиев_ботинкиEntities2.GetContext().Products.ToList();
 
             
 

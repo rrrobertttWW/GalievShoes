@@ -19,6 +19,16 @@ namespace ГалиевЧудоОбувь
         {
             this.Stock = new HashSet<Stock>();
         }
+    
+        public int ProductID { get; set; }
+        public int CategoryID { get; set; }
+        public int SubcategoryID { get; set; }
+        public int ManufacturerID { get; set; }
+        public string ProductImage { get; set; }
+        public string ProductName { get; set; }
+        public string Description { get; set; }
+        public string Composition { get; set; }
+        public decimal Price { get; set; }
         public string CategoryFull
         {
             get
@@ -43,16 +53,6 @@ namespace ГалиевЧудоОбувь
                 return "pics/" + ProductImage;
             }
         }
-        public int ProductID { get; set; }
-        public int CategoryID { get; set; }
-        public int SubcategoryID { get; set; }
-        public int ManufacturerID { get; set; }
-        public string ProductImage { get; set; }
-        public string ProductName { get; set; }
-        public string Description { get; set; }
-        public string Composition { get; set; }
-        public decimal Price { get; set; }
-    
         public virtual Categories Categories { get; set; }
         public virtual Manufacturers Manufacturers { get; set; }
         public virtual Subcategories Subcategories { get; set; }
