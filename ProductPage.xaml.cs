@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,9 +24,6 @@ namespace ГалиевЧудоОбувь
         public ProductPage()
         {
             InitializeComponent();
-            var products = Галиев_ботинкиEntities2.GetContext().Products.ToList();
-
-            ProductListView.ItemsSource = products;
            
             FiltCB.SelectedIndex = 0;
             SortCB.SelectedIndex = 0;
@@ -40,7 +38,7 @@ namespace ГалиевЧудоОбувь
         }
         private void UpdateProducts()
         {
-            var currentProducts = Галиев_ботинкиEntities2.GetContext().Products.ToList();
+            var currentProducts = Галиев_ботинкиEntities3.GetContext().Products.Include("Stock").ToList();
 
             
 

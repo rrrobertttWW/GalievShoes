@@ -44,10 +44,10 @@
             </ComboBox>
         </StackPanel>
 
-        <ListView Name="ProductListView" Grid.Row="1">
+        <ListView Name="ProductListView" Grid.Row="1" HorizontalContentAlignment="Stretch">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid Background="{Binding ItemColor}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -93,6 +93,7 @@
                             <TextBlock Text="Цена: " FontSize="20" FontWeight="SemiBold"></TextBlock>
                             <TextBlock Text="{Binding Price}" FontSize="22" ></TextBlock>
                             <TextBlock Text=" руб." FontSize="20" FontWeight="SemiBold"></TextBlock>
+                            <TextBlock Text="{Binding TotalAvailable, StringFormat='(На складе всего: {0} шт.)'}" FontSize="16" Foreground="Gray" Margin="15,4,0,0" VerticalAlignment="Center"/>
                         </StackPanel>
 
                         <StackPanel Name="OrderPanel" Orientation="Horizontal" Grid.Column="1" Grid.Row="6" Margin="0,10,0,0">

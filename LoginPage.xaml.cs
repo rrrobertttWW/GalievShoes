@@ -23,7 +23,7 @@ namespace ГалиевЧудоОбувь
 
             try
             {
-                var user = Галиев_ботинкиEntities2.GetContext().Users
+                var user = Галиев_ботинкиEntities3.GetContext().Users
                     .FirstOrDefault(u => u.UserLogin == login);
 
                 if (user == null)

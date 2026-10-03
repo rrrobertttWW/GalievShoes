@@ -112,6 +112,9 @@
     <Compile Include="Subcategories.cs">
       <DependentUpon>GalievModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>GalievModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Users.cs">
       <DependentUpon>GalievModel.tt</DependentUpon>
     </Compile>

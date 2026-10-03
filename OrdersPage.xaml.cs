@@ -18,7 +18,7 @@ namespace ГалиевЧудоОбувь
         {
             try
             {
-                var context = Галиев_ботинкиEntities2.GetContext();
+                var context = Галиев_ботинкиEntities3.GetContext();
                 var ordersQuery = context.Orders.AsQueryable();
 
                 if (Manager.IsUser)
@@ -57,7 +57,7 @@ namespace ГалиевЧудоОбувь
 
                 try
                 {
-                    var context = Галиев_ботинкиEntities2.GetContext();
+                    var context = Галиев_ботинкиEntities3.GetContext();
                     var items = context.OrderItems.Where(oi => oi.OrderID == order.OrderID).ToList();
                     OrderItemsGrid.ItemsSource = items;
                     OrderDetailsPanel.Visibility = Visibility.Visible;
@@ -113,7 +113,7 @@ namespace ГалиевЧудоОбувь
             var item = (sender as Button).Tag as OrderItems;
             if (item == null) return;
 
-            var context = Галиев_ботинкиEntities2.GetContext();
+            var context = Галиев_ботинкиEntities3.GetContext();
             var dbItem = context.OrderItems.FirstOrDefault(oi => oi.OrderID == item.OrderID && oi.StockID == item.StockID);
             var stock = context.Stock.Find(item.StockID);
             var order = context.Orders.Find(item.OrderID);
@@ -140,7 +140,7 @@ namespace ГалиевЧудоОбувь
             var item = (sender as Button).Tag as OrderItems;
             if (item == null) return;
 
-            var context = Галиев_ботинкиEntities2.GetContext();
+            var context = Галиев_ботинкиEntities3.GetContext();
             var dbItem = context.OrderItems.FirstOrDefault(oi => oi.OrderID == item.OrderID && oi.StockID == item.StockID);
             var stock = context.Stock.Find(item.StockID);
             var order = context.Orders.Find(item.OrderID);
@@ -171,7 +171,7 @@ namespace ГалиевЧудоОбувь
             var item = (sender as Button).Tag as OrderItems;
             if (item == null) return;
 
-            var context = Галиев_ботинкиEntities2.GetContext();
+            var context = Галиев_ботинкиEntities3.GetContext();
             var dbItem = context.OrderItems.FirstOrDefault(oi => oi.OrderID == item.OrderID && oi.StockID == item.StockID);
             var stock = context.Stock.Find(item.StockID);
             var order = context.Orders.Find(item.OrderID);
@@ -201,7 +201,7 @@ namespace ГалиевЧудоОбувь
             if (selectedOrderRow == null) return;
 
             Orders currentOrder = selectedOrderRow.OriginalOrder;
-            var context = Галиев_ботинкиEntities2.GetContext();
+            var context = Галиев_ботинкиEntities3.GetContext();
 
             var stock = context.Stock.Find(stockId);
             var order = context.Orders.Find(currentOrder.OrderID);
@@ -249,7 +249,7 @@ namespace ГалиевЧудоОбувь
                     dynamic selected = OrdersGrid.SelectedItem;
                     Orders order = selected.OriginalOrder;
 
-                    var context = Галиев_ботинкиEntities2.GetContext();
+                    var context = Галиев_ботинкиEntities3.GetContext();
                     var orderToDelete = context.Orders.Find(order.OrderID);
 
                     if (orderToDelete != null)

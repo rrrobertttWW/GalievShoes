@@ -11,6 +11,8 @@ namespace ГалиевЧудоОбувь
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
+    using System.Windows.Media;
     
     public partial class Products
     {
@@ -18,6 +20,26 @@ namespace ГалиевЧудоОбувь
         public Products()
         {
             this.Stock = new HashSet<Stock>();
+        }
+
+        public int TotalAvailable
+        {
+            get
+            {
+                return Stock == null ? 0 : Stock.Sum(s => s.Available);
+            }
+        }
+
+        public Brush ItemColor
+        {
+            get
+            {
+                if (TotalAvailable <= 3)
+                {
+                    return (Brush)new BrushConverter().ConvertFromString("#FF8080");
+                }
+                return Brushes.Transparent;
+            }
         }
     
         public int ProductID { get; set; }

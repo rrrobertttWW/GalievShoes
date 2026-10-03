@@ -84,7 +84,7 @@ namespace ГалиевЧудоОбувь
 
             try
             {
-                var context = Галиев_ботинкиEntities2.GetContext();
+                var context = Галиев_ботинкиEntities3.GetContext();
                 
                 Orders newOrder = new Orders
                 {
